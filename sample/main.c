@@ -23,6 +23,7 @@ int main()
 	vita2d_pgf *pgf;
 	vita2d_pvf *pvf;
 	vita2d_texture *image;
+	vita2d_texture *peter;
 	float rad = 0.0f;
 
 	vita2d_init();
@@ -35,7 +36,7 @@ int main()
 	 * Load the statically compiled image.png file.
 	 */
 	image = vita2d_load_PNG_buffer(&_binary_image_png_start);
-	image = vita2d_load_PNG_buffer(&_binary_peter_png_start);
+	peter = vita2d_load_PNG_buffer(&_binary_peter_png_start);
 
 	memset(&pad, 0, sizeof(pad));
 
@@ -53,9 +54,7 @@ int main()
 		vita2d_draw_fill_circle(200, 420, 100, RGBA8(0, 255,0 ,255));
 
 		vita2d_draw_texture_rotate(image, 940/2, 544/2, rad);
-		vita2d_draw_texture(image, 20, 20);
-		
-
+		vita2d_draw_texture(peter, 20, 20);
 
 		vita2d_draw_line(500, 30, 800, 300, RGBA8(255, 0, 255, 255));
 
@@ -75,7 +74,7 @@ int main()
 	 */
 	vita2d_fini();
 	vita2d_free_texture(image);
-	vita2d_free_texture(image);
+	vita2d_free_texture(peter);
 	vita2d_free_pgf(pgf);
 	vita2d_free_pvf(pvf);
 

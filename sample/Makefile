@@ -1,5 +1,5 @@
 TITLE_ID = VITA2DTST
-TARGET   = vita2dsample
+TARGET   = futurepr0n2d
 OBJS     = main.o image.o peter.o
 
 LIBS = -lvita2d -lSceDisplay_stub -lSceGxm_stub \
