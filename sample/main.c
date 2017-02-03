@@ -25,6 +25,8 @@ int main()
 	vita2d_texture *image;
 	vita2d_texture *peter;
 	float rad = 0.0f;
+        float peter_x = 20.0f;
+        float peter_y = 20.0f;
 
 	vita2d_init();
 	vita2d_set_clear_color(RGBA8(0x40, 0x40, 0x40, 0xFF));
@@ -45,6 +47,12 @@ int main()
 
 		if (pad.buttons & SCE_CTRL_START)
 			break;
+		
+		if (pad.buttons & SCE_CTRL_RIGHT)
+			peter_x += 0.1f;
+
+		if (pad.buttons & SCE_CTRL_LEFT)
+			peter_x -= 0.1f;
 
 		vita2d_start_drawing();
 		vita2d_clear_screen();
@@ -54,7 +62,7 @@ int main()
 		vita2d_draw_fill_circle(200, 420, 100, RGBA8(0, 255,0 ,255));
 
 		vita2d_draw_texture_rotate(image, 940/2, 544/2, rad);
-		vita2d_draw_texture(peter, 20, 20);
+		vita2d_draw_texture(peter, peter_x, peter_y);
 
 		vita2d_draw_line(500, 30, 800, 300, RGBA8(255, 0, 255, 255));
 
