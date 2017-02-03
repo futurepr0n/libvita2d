@@ -28,6 +28,12 @@ int main()
         float peter_x = 20.0f;
         float peter_y = 20.0f;
 
+	float p1_pos_x = 20.0f;
+	float p1_pos_y = 20.0f;
+
+
+
+
 	vita2d_init();
 	vita2d_set_clear_color(RGBA8(0x40, 0x40, 0x40, 0xFF));
 
@@ -49,27 +55,55 @@ int main()
 		if (pad.buttons & SCE_CTRL_START)
 			break;
 		
-		if (pad.buttons & SCE_CTRL_RIGHT)
-			peter_x += 10.0f;
+		if (pad.buttons & SCE_CTRL_RIGHT && p1_pos_x <= 200){
+		//	peter_x += 10.0f;
+			p1_pos_x += 10.0f;
+		}
 
-		if (pad.buttons & SCE_CTRL_LEFT)
-			peter_x -= 10.0f;
+		if (pad.buttons & SCE_CTRL_LEFT && p1_pos_x >= 20){
+		//	peter_x -= 10.0f;
+			p1_pos_x -= 10.0f;
+		
+		}
 
-		if (pad.lx >= 130)
-			peter_x += 10.0f;
+		if (pad.buttons & SCE_CTRL_UP && p1_pos_y >= 20){
+			p1_pos_y -= 10.0f;
+		}
+		
+		if (pad.buttons & SCE_CTRL_DOWN && p1_pos_y <= 500){
+			p1_pos_y += 10.0f;
 
-		if (pad.lx <= 120)
-			peter_x -= 10.0f;
+		}
+
+
+		if (pad.lx >= 130 && p1_pos_x <= 200) {
+		//	peter_x += 10.0f;
+			p1_pos_x += 10.0f;
+		}
+
+		if (pad.lx <= 120 && p1_pos_x >= 20 ){
+		//	peter_x -= 10.0f;
+			p1_pos_x -= 10.f;
+		}
+		if (pad.ly >= 120 && p1_pos_y <= 500){
+			p1_pos_y += 10.0f;
+
+		}
+		
+		if (pad.ly <= 120 && p1_pos_y >= 20){
+			p1_pos_y -= 10.0f;
+	
+		}
 
 		vita2d_start_drawing();
 		vita2d_clear_screen();
 
-		vita2d_draw_rectangle(20, 20, 400, 250, RGBA8(255, 0, 0, 255));
+		vita2d_draw_rectangle(p1_pos_x, p1_pos_y, 75, 150, RGBA8(255, 0, 0, 255));
 		vita2d_draw_rectangle(680, 350, 100, 150, RGBA8(0, 0, 255, 255));
 		vita2d_draw_fill_circle(200, 420, 100, RGBA8(0, 255,0 ,255));
 
-		vita2d_draw_texture_rotate(image, 940/2, 544/2, rad);
-		vita2d_draw_texture(peter, peter_x, peter_y);
+//		vita2d_draw_texture_rotate(image, 940/2, 544/2, rad);
+//		vita2d_draw_texture(peter, peter_x, peter_y);
 
 		vita2d_draw_line(500, 30, 800, 300, RGBA8(255, 0, 255, 255));
 
