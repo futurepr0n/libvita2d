@@ -34,6 +34,7 @@ int main()
 	pgf = vita2d_load_default_pgf();
 	pvf = vita2d_load_default_pvf();
 
+	sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG);
 	/*
 	 * Load the statically compiled image.png file.
 	 */
