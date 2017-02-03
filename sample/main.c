@@ -85,7 +85,7 @@ int main()
 		//	peter_x -= 10.0f;
 			p1_pos_x -= 10.f;
 		}
-		if (pad.ly >= 130 && p1_pos_y <= 500){
+		if (pad.ly >= 140 && p1_pos_y <= 400){
 			p1_pos_y += 10.0f;
 
 		}
