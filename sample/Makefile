@@ -1,6 +1,6 @@
 TITLE_ID = VITA2DTST
 TARGET   = vita2dsample
-OBJS     = main.o image.o
+OBJS     = main.o image.o peter.o
 
 LIBS = -lvita2d -lSceDisplay_stub -lSceGxm_stub \
 	-lSceSysmodule_stub -lSceCtrl_stub -lScePgf_stub -lScePvf_stub \
