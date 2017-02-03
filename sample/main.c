@@ -55,10 +55,10 @@ int main()
 		if (pad.buttons & SCE_CTRL_LEFT)
 			peter_x -= 10.0f;
 
-		if (pad.lx > 130)
+		if (pad.lx >= 130)
 			peter_x += 10.0f;
 
-		if (pad.lx < 120)
+		if (pad.lx <= 120)
 			peter_x -= 10.0f;
 
 		vita2d_start_drawing();
