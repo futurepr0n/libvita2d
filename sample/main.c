@@ -49,10 +49,16 @@ int main()
 			break;
 		
 		if (pad.buttons & SCE_CTRL_RIGHT)
-			peter_x += 0.1f;
+			peter_x += 10.0f;
 
 		if (pad.buttons & SCE_CTRL_LEFT)
-			peter_x -= 0.1f;
+			peter_x -= 10.0f;
+
+		if (pad.lx > 130)
+			peter_x += 10.0f;
+
+		if (pad.lx < 120)
+			peter_x -= 10.0f;
 
 		vita2d_start_drawing();
 		vita2d_clear_screen();
